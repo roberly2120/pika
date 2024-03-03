@@ -4,7 +4,7 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
     const initialState = {
-        test: "working"
+        occurrences: [],
     }
     const [state, setState] = React.useState(initialState);
 

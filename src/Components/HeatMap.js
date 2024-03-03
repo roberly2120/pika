@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default function HeatMap() {
     const { state, setState } = useContext(AppContext);
-    const [occurrences, setOccurrences] = useState([]);
+    const { occurrences } = state;
     let startTime
     const olinguitoID = 8365779
 
@@ -30,7 +30,10 @@ export default function HeatMap() {
     }
     
     useEffect(() => {
-        retrieveOccurences();
+        if(occurrences.length === 0) {
+            retrieveOccurences();
+        }
+        
     }, []);
 
     const retrieveOccurences = () => {
@@ -38,7 +41,8 @@ export default function HeatMap() {
             const endTime = Date.now();
             const duration = (endTime - startTime) / 1000
             // console.log(`Duration: ${duration} seconds`)
-            setOccurrences(allOccurences);
+            setState({ ...state, occurrences: allOccurences });
+            console.log(state.occurrences)
         })
     }
 
