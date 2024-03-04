@@ -6,6 +6,7 @@ const AppProvider = ({ children }) => {
     const initialState = {
         occurrences: [],
         currentOccurence: {},
+        isDarkMode: false,
     }
     const [state, setState] = React.useState(initialState);
 

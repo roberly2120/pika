@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Flex, IconButton, Icon, Box, Heading, Button, useColorMode, Link, Spacer, Image } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
+import { AppContext } from '../State';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
 export default function Header() {
     const { colorMode, toggleColorMode } = useColorMode();
     const SwitchIcon = colorMode === 'light' ? FaMoon : FaSun;
+    const { state, setState } = useContext(AppContext);
+
+
+    const colorToggle = () => {
+        toggleColorMode();
+        setState ({ ...state, isDarkMode: !state.isDarkMode });
+    }
+    useEffect(() => {
+        console.log(state.isDarkMode)
+    }, [state.isDarkMode])
 
     return (
         <Flex as="nav" align="center" justify="space-between" wrap="wrap" padding="1.5rem" bg="teal.500" color="white">
@@ -34,7 +45,7 @@ export default function Header() {
                 <IconButton
                     aria-label="Toggle theme"
                     icon={<Icon as={SwitchIcon} />}
-                    onClick={toggleColorMode}
+                    onClick={colorToggle}
                     size="md"
                     colorScheme="teal"
                     variant="ghost"

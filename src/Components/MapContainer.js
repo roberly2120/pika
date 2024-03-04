@@ -50,7 +50,6 @@ export default function MyMapComponent({ occurrences }) {
 
   const getOccurrence = async (id) => {
     const res = await axios.get(`https://api.gbif.org/v1/occurrence/${id}`)
-    console.log(res.data)
     setState({ ...state, currentOccurrence: res.data })
   }
   useEffect(() => {

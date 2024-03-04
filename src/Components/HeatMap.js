@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import MapContainer from "./MapContainer";
 import { AppContext } from "../State";
-import { Center, Button, Box, Image, Text, VStack } from "@chakra-ui/react";
+import { Center, Button, Box, Image, Text, VStack, Heading } from "@chakra-ui/react";
 import {
     Drawer,
     DrawerBody,
@@ -22,7 +22,6 @@ export default function HeatMap() {
     const olinguitoID = 8365779
 
     const fetchAllOccurrences = async () => {
-        startTime = Date.now();
         let offset = 0;
         const limit = 300;
         let endOfRecords = false;
@@ -45,29 +44,44 @@ export default function HeatMap() {
             retrieveOccurences();
         }
     }, []);
-    // create a useEffect to open the drawer when the currentOccurrence changes
+
     useEffect(() => {
         if (currentOccurrence) {
             onOpen()
         }
-    }, [currentOccurrence, onOpen])
+    }, [currentOccurrence, onOpen]);
+    useEffect(() => {
+        return () => {
+            setState(prevState => ({ ...prevState, currentOccurrence: null }));
+        }
+    }, [])
     const retrieveOccurences = () => {
         fetchAllOccurrences().then(allOccurences => {
-            const endTime = Date.now();
-            const duration = (endTime - startTime) / 1000
-            // console.log(`Duration: ${duration} seconds`)
             setState({ ...state, occurrences: allOccurences });
-            console.log(state.occurrences)
         })
     }
 
     return (
         <div>
+            <VStack>
+                <Heading mt="50px">
+                    Olinguito Occurrences
+                </Heading>
+                <Text fontSize="2rem">
+                    Click on an icon to see details about the occurrence.
+                </Text>
+                <Text fontSize="1.2rem">
+                    Some occurrences may not have images or other info.
+                </Text>
+
+            </VStack>
+
+
             <Center mt="50px">
+
                 <MapContainer occurrences={occurrences} />
             </Center>
 
-            {/* Chakra UI Drawer */}
             <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="lg">
                 <DrawerOverlay />
                 <DrawerContent>
