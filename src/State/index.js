@@ -5,6 +5,7 @@ const AppContext = createContext();
 const AppProvider = ({ children }) => {
     const initialState = {
         occurrences: [],
+        currentOccurence: {},
     }
     const [state, setState] = React.useState(initialState);
 

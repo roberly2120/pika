@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-
+import axios from 'axios';
+import { AppContext } from '../State';
 
 const containerStyle = {
   width: '70%',
@@ -44,20 +45,29 @@ export default function MyMapComponent({ occurrences }) {
   const mapRef = useRef(null);
   const coordinates = useState(coordinatesArray)
   const [isMapLoaded, setIsMapLoaded] = useState(false); // this ensures the map is loaded before we add markers
+  const { state, setState } = useContext(AppContext);
 
+
+  const getOccurrence = async (id) => {
+    const res = await axios.get(`https://api.gbif.org/v1/occurrence/${id}`)
+    console.log(res.data)
+    setState({ ...state, currentOccurrence: res.data })
+  }
   useEffect(() => {
     if (mapRef.current && window.google) {
         occurrences.forEach(occurrence => {
           const coord = { lat: occurrence.decimalLatitude, lng: occurrence.decimalLongitude }
-          new window.google.maps.Marker({
+          const marker = new window.google.maps.Marker({
             position: coord,
             map: mapRef.current,
             icon: {
               url: '../olinguito.svg',
               scaledSize: new window.google.maps.Size(20,20),
             }
+          });
+          marker.addListener('click', () => {
+            getOccurrence(occurrence.gbifID)
           })
-
         });
     }
   }, [isMapLoaded, occurrences]);
