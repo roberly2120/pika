@@ -77,7 +77,7 @@ export default function HeatMap() {
             </VStack>
 
 
-            <Center mt="50px">
+            <Center mt="50px" mb="100px">
 
                 <MapContainer occurrences={occurrences} />
             </Center>

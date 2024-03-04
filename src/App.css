@@ -23,7 +23,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+/* .gif-style {
+  position: fixed;
+  left: 0;
+  top: 60px;
+  width: 150px; 
+  z-index: 10000000000; 
+} */
 .App-link {
   color: #61dafb;
 }
