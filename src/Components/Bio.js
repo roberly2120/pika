@@ -1,11 +1,14 @@
 import React from 'react';
-import { Box, Text, Image, VStack, HStack, Link, Heading, Center } from '@chakra-ui/react';
+import { Box, Text, Image, VStack, HStack, Link, Heading, Center, useBreakpointValue } from '@chakra-ui/react';
 export default function Bio() {
+    const isVertical = useBreakpointValue({ base: true, md: false });
+    const StackComponent = isVertical ? VStack : HStack;
+
     return (
         <>
             <Center mt="40px">
                 <VStack w="85%" align="stretch">
-                    <HStack spacing={4} align="stretch" w="100%">
+                    <StackComponent spacing={4} align="stretch" w="100%">
                         <Box border="1px" borderColor="gray.200" p={4} borderRadius="15px"> {/* profile picture. name and age. location. funny quote? */}
                             <Image src="../Olinguito-Bio-Image.jpg" borderRadius="15px" />
                             <Text fontSize="2rem">
@@ -32,8 +35,8 @@ export default function Bio() {
                                 Also, fun fact: I'm quite the tree whisperer. You'll often find me having deep, meaningful conversations with the local flora. They're great listeners, especially the ancient oaks.
                             </Text>
                         </Box>
-                    </HStack>
-                    <HStack spacing={4} align="stretch" w="100%">
+                    </StackComponent>
+                    <StackComponent spacing={4} align="stretch" w="100%">
                         <Box border="1px" borderColor="gray.200" p={4} flex={1} borderRadius="15px"> {/* interests and hobbies */}
                             <Heading as="h2" size="lg">
                                 Interests and Hobbies
@@ -54,7 +57,7 @@ export default function Bio() {
                                 I'm looking for a partner who doesn't want to spent time together. As an Olinguito, the most romantic thing I can think of is a partner who will mate with me and then rear our young to maturity while I get a little "me" time. Forever. I'm willing to share my fruit! But only if you bring your own fruit and you don't take any of my fruit. I am unwilling to share my fruit. I'm just a guy who wants to breed seasonally in the night and then retreat back to my figs and berries. 
                             </Text>
                         </Box>
-                    </HStack>
+                    </StackComponent>
                     <Box border="1px" borderColor="gray.200" p={4} borderRadius="15px"> {/* fun facts*/}
                         <Heading as="h2" size="lg" textAlign="center">
                             Fun Facts
