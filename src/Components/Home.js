@@ -32,7 +32,7 @@ export default function Home() {
                             </Button>
                         </VStack>
                     </Box>
-                    <Box border="1px" borderColor="gray.200" p={4} borderRadius="15px">
+                    <Box border="1px" borderColor="gray.200" p={4} borderRadius="15px" mb="20px">
                         <VStack>
                             <Text fontSize={textFontSize} fontWeight="bold">
                                 Seeking Mating Partners!
