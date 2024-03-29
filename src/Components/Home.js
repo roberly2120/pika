@@ -1,10 +1,10 @@
 import React from 'react';
-import { VStack, Text, Image, Button, Center, HStack, Heading, Box, AspectRatio } from '@chakra-ui/react';
+import { VStack, Text, Image, Button, Center, HStack, Heading, Box, AspectRatio, useBreakpointValue } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 export default function Home() {
     const navigate = useNavigate();
     const textFontSize = "1.5rem";
-
+    const StackComponent = useBreakpointValue({ base: VStack, md: HStack });
     return (
         <>
             <VStack>
@@ -18,7 +18,7 @@ export default function Home() {
                         </AspectRatio>
                     </VStack>
                 </Center>
-                <HStack ml="25px" mr="25px" mt="25px">
+                <StackComponent ml="25px" mr="25px" mt="25px">
                     <Box border="1px" borderColor="gray.200" p={4} borderRadius="15px">
                         <VStack>
                             <Text fontSize={textFontSize} fontWeight="bold">
@@ -45,7 +45,7 @@ export default function Home() {
                             </Button>
                         </VStack>
                     </Box>
-                </HStack>
+                </StackComponent>
             </VStack>
         </>
     )

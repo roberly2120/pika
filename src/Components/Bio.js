@@ -3,6 +3,7 @@ import { Box, Text, Image, VStack, HStack, Link, Heading, Center, useBreakpointV
 export default function Bio() {
     const isVertical = useBreakpointValue({ base: true, md: false });
     const StackComponent = isVertical ? VStack : HStack;
+    const fontSize = isVertical ? "1.3rem" : "1.5rem";
 
     return (
         <>
@@ -25,7 +26,7 @@ export default function Bio() {
                             <Heading as="h2" size="lg">
                                 About Me
                             </Heading>
-                            <Text fontSize="1.5rem">
+                            <Text fontSize={fontSize}>
                                 Name's Ollie, a self-taught acrobat of the treetops and a night-time ninja (or so I like to think). I'm a late bloomer in the animal kingdom fame game – scientists only spotted me hanging out in the Andean cloud forests recently. Talk about being fashionably late to the party!
 
                                 I spend most nights dining on a lavish spread of fruits (I'm a bit of a fig fanatic) and the occasional insect, because who doesn't like a bit of protein with their sweets? My hobbies include perfecting the art of the silent pounce, napping in tree hollows (they're like the five-star hotels of the forest), and composing songs that only other Olinguitos appreciate.
@@ -42,18 +43,18 @@ export default function Bio() {
                                 Interests and Hobbies
                             </Heading>
                             <VStack align="start">
-                                <Text fontSize="1.5rem">- Midnight strolls through the misty forests</Text>
-                                <Text fontSize="1.5rem">- Climbing trees (the taller, the better!)</Text>
-                                <Text fontSize="1.5rem">- Gourmet fruit tasting, especially figs and berries</Text>
-                                <Text fontSize="1.5rem">- Star gazing from the highest branches</Text>
-                                <Text fontSize="1.5rem">- Playing 'tag' with my nocturnal friends</Text>
+                                <Text fontSize={fontSize}>- Midnight strolls through the misty forests</Text>
+                                <Text fontSize={fontSize}>- Climbing trees (the taller, the better!)</Text>
+                                <Text fontSize={fontSize}>- Gourmet fruit tasting, especially figs and berries</Text>
+                                <Text fontSize={fontSize}>- Star gazing from the highest branches</Text>
+                                <Text fontSize={fontSize}>- Playing 'tag' with my nocturnal friends</Text>
                             </VStack>
                         </Box>
                         <Box border="1px" borderColor="gray.200" p={4} flex={1} borderRadius="15px"> {/* looking for... */}
                             <Heading as="h2" size="lg">
                                 Looking For...
                             </Heading>
-                            <Text fontSize="1.5rem">
+                            <Text fontSize={fontSize}>
                                 I'm looking for a partner who doesn't want to spent time together. As an Olinguito, the most romantic thing I can think of is a partner who will mate with me and then rear our young to maturity while I get a little "me" time. Forever. I'm willing to share my fruit! But only if you bring your own fruit and you don't take any of my fruit. I am unwilling to share my fruit. I'm just a guy who wants to breed seasonally in the night and then retreat back to my figs and berries. 
                             </Text>
                         </Box>
@@ -63,19 +64,19 @@ export default function Bio() {
                             Fun Facts
                         </Heading>
                         <VStack align="center" spacing={4}>
-                            <Text fontSize="1.5rem" textAlign="center">
+                            <Text fontSize={fontSize} textAlign="center">
                                 I'm the first new carnivorous mammal discovered in the Western Hemisphere in 35 years.
                             </Text>
-                            <Text fontSize="1.5rem" textAlign="center">
+                            <Text fontSize={fontSize} textAlign="center">
                                 I'm a nocturnal animal, but not a weird way.
                             </Text>
-                            <Text fontSize="1.5rem" textAlign="center">
-                                I'm a solitary animal, no roommates.
+                            <Text fontSize={fontSize} textAlign="center">
+                                I'm a solitary animal, no roommates for me.
                             </Text>
-                            <Text fontSize="1.5rem" textAlign="center">
+                            <Text fontSize={fontSize} textAlign="center">
                                 I'm a frugivore, which means I eat mostly fruit.
                             </Text>
-                            <Text fontSize="1.5rem" textAlign="center">
+                            <Text fontSize={fontSize} textAlign="center">
                                 I'm a tree-dweller. I be up in them trees. 
                             </Text>
                         </VStack>
