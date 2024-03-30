@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 export default function Home() {
     const navigate = useNavigate();
     const textFontSize = "1.5rem";
-    const StackComponent = useBreakpointValue({ base: VStack, md: HStack });
+    // const StackComponent = useBreakpointValue({ base: VStack, md: HStack });
+    const StackComponent = VStack;
     return (
         <>
             <VStack>
@@ -19,7 +20,7 @@ export default function Home() {
                     </VStack>
                 </Center>
                 <StackComponent ml="25px" mr="25px" mt="25px">
-                    <Box border="1px" borderColor="gray.200" p={4} borderRadius="15px">
+                    <Box border="1px" borderColor="gray.200" p={4} borderRadius="15px" width="100%">
                         <VStack>
                             <Text fontSize={textFontSize} fontWeight="bold">
                                 I'm an Olinguito! I'm one of a very rare species that was only discovered in 2013.
@@ -32,7 +33,7 @@ export default function Home() {
                             </Button>
                         </VStack>
                     </Box>
-                    <Box border="1px" borderColor="gray.200" p={4} borderRadius="15px" mb="20px">
+                    <Box border="1px" borderColor="gray.200" p={4} borderRadius="15px" mb="20px" width="100%">
                         <VStack>
                             <Text fontSize={textFontSize} fontWeight="bold">
                                 Seeking Mating Partners!
