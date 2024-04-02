@@ -1,1 +1,1 @@
-[ ] easter egg. when switch to dark mode, a little olinguito pops out from the wall briefly. maybe grabs a berry?
+[ ] easter egg. when switch to dark mode, a little olinguito pops out from the wall briefly. 
