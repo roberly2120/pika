@@ -3,7 +3,7 @@ import { Box, Text, Image, VStack, HStack, Link, Heading, Center, useBreakpointV
 export default function Bio() {
     const isVertical = useBreakpointValue({ base: true, md: false });
     const StackComponent = isVertical ? VStack : HStack;
-    const fontSize = isVertical ? "1.3rem" : "1.5rem";
+    const fontSize = isVertical ? "1rem" : "1.5rem";
 
     return (
         <>
